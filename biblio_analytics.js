@@ -100,7 +100,7 @@ var biblio_analytics = new MessageBotExtension('biblio_analytics');
 
 	this.lazyLoad = function () {
 		function sortLogEntries(arr) {
-			var a = new Array(24).fill(0);
+			var a = new Array(25).join('0').split('').map(Number);
 			arr.forEach(function (el) {
 				var d = (new Date(el)).getHours();
 				a[d]++;
