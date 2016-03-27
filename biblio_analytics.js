@@ -1,13 +1,13 @@
-/*jshint 
-    esnext:        true, 
-    browser:    true, 
+/*jshint
+    esnext:        true,
+    browser:    true,
     devel:        true,
     unused:        true,
     undef:        true,
 	-W097,
 	-W040
 */
-/*global 
+/*global
     MessageBotExtension,
     Awesomplete,
 	Chartist
@@ -15,7 +15,7 @@
 
 'use strict';
 
-var biblio_analytics = new MessageBotExtension('biblio_analytics');
+var biblio_analytics = MessageBotExtension('biblio_analytics');
 
 (function() {
 	this.setAutoLaunch(true);
@@ -117,7 +117,7 @@ var biblio_analytics = new MessageBotExtension('biblio_analytics');
 
 			var l0 = this.core.logs[0].split(' ');
 			this.startTime = new Date(l0[0] + 'T' + l0[1] + 'Z');
-			this.onlineTime = {};		
+			this.onlineTime = {};
 
 			var online = {},
 				joinList = [],
@@ -306,4 +306,3 @@ var biblio_analytics = new MessageBotExtension('biblio_analytics');
 	this.installLib('//cdnjs.cloudflare.com/ajax/libs/chartist/0.9.5/chartist.min.js', 'script');
 	this.installLib('//cdnjs.cloudflare.com/ajax/libs/chartist/0.9.5/chartist.min.css', 'link');
 }.bind(biblio_analytics)());
-
