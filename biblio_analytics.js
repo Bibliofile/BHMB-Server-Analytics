@@ -108,7 +108,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
 			return a;
 		}
 
-		if (typeof Awesomplete == 'function' && typeof Chartist == 'object' && Object.keys(this.core.players).length) {
+		if (typeof Awesomplete == 'function' && typeof Chartist == 'object' && Object.keys(this.core.logs).length) {
 			//Loaded all dependencies!
 			//console.info("Lazy Load: True");
 
