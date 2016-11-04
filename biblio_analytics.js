@@ -162,12 +162,12 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
                 delete online[player];
 
                 logData.onlineTime[player] = (+logData.onlineTime[player] || 0) + timeSpentOnline;
-
-                //Show history page
-                ex.tab.querySelector('#biblio_analytics_tc [data-tab-name=history]').innerHTML = '<ul><li>' + joinList.join('</li><li>') + '</li></ul>';
-
             }
         });
+
+        //Show history page
+        ex.tab.querySelector('#biblio_analytics_tc [data-tab-name=history]').innerHTML = '<ul><li>' + joinList.join('</li><li>') + '</li></ul>';
+
         writeData();
         createSearch();
         createGraphs();
@@ -330,7 +330,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
                 h += '<span>' + safeName + ' has spent ' + (logData.onlineTime[name] / 1000 / 60 < 60 ? (logData.onlineTime[name] / 1000 / 60).toFixed(0) + ' minutes' : (logData.onlineTime[name] / 1000 / 60 / 60).toFixed(2) + ' hours') + ' online</span><br>';
                 h += '<span>' + safeName + ' last joined the server at ' + (new Date(logData.players[name].lastJoin)).toLocaleDateString() + ' ' + (new Date(logData.players[name].lastJoin)).toLocaleTimeString() + '</span><br>';
                 h += '<span>The most recently used IP is ' + ex.bot.world.players[name].ip + '</span><br>';
-                h += '<span>The names asociated with this IP are:</span><ul style="padding-left:1.5em;">';
+                h += '<span>The names associated with this IP are:</span><ul style="padding-left:1.5em;">';
                 logData.ips[ex.bot.world.players[name].ip].forEach(function(name) {
                     h += '<li>' + name;
                 });
@@ -344,7 +344,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
             } else if (logData.ips[name]) {
                 //IP found!
                 h = '<h4>' + name + ' Info</h4>';
-                h += '<span>The names asociated with this IP are:</span><ul style="padding-left:1.5em">';
+                h += '<span>The names associated with this IP are:</span><ul style="padding-left:1.5em">';
                 this.ips[name].forEach(function(name) {
                     h += '<li>' + name + '</li>';
                 });
