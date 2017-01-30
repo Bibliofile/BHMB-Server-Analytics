@@ -25,7 +25,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
     };
 
     ex.tab = ex.ui.addTab('Analytics');
-    ex.tab.innerHTML = '<style>.ct-line,.ct-point{stroke:#182b73!important}.ct-area{fill:#182b73!important}#biblio_analytics_tn{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-flow:row wrap;flex-flow:row wrap}#biblio_analytics_tn>span{background:#182B73;color:#fff;height:40px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;margin-top:5px;margin-right:5px;min-width:120px}#biblio_analytics_tn>span.selected{background:#E7E7E7;color:#000}#biblio_analytics_tc>div{display:none;height:calc(100vh - 155px);overflow-y:auto;background:#E7E7E7;padding:5px}#biblio_analytics_tc>div.visible{display:block}#biblio_analytics_tc [data-tab-name=history]>ul>li>span{width:15em;display:inline-block}#biblio_analytics_tc [data-tab-name=history]>ul>li{font-size:1em}</style><nav id=biblio_analytics_tn><span data-tab-name=server class=selected>Server Stats</span> <span data-tab-name=history>Player History</span> <span data-tab-name=search>Player Search</span></nav><div id=biblio_analytics_tc><div data-tab-name=server class=visible>Loading...</div><div data-tab-name=history>Loading...</div><div data-tab-name=search><input disabled placeholder=Loading...><div></div></div></div>';
+    ex.tab.innerHTML = '<style>.ct-line, .ct-point{stroke: rgb(24, 43, 115) !important;}.ct-area{fill: rgb(24, 43, 115) !important;}#biblio_analytics_tn{width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-flow: row wrap; flex-flow: row wrap;}#biblio_analytics_tn > span{background: #182B73; color: #fff; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; margin-top: 5px; margin-right: 5px; min-width: 120px;}#biblio_analytics_tn > span.selected{background: #E7E7E7; color: #000;}#biblio_analytics_tc > div{display: none; overflow-y: auto; background: #E7E7E7; padding: 5px;}#biblio_analytics_tc > div.visible{display: block;}#biblio_analytics_tc [data-tab-name="history"] > ul > li > span{width: 15em; display: inline-block;}#biblio_analytics_tc [data-tab-name="history"] > ul > li{font-size: 1em;}</style><nav id="biblio_analytics_tn"> <span data-tab-name="server" class="selected">Server Stats</span> <span data-tab-name="history">Player History</span> <span data-tab-name="search">Player Search</span></nav><div id="biblio_analytics_tc"> <div data-tab-name="server" class="visible">Loading...</div><div data-tab-name="history">Loading...</div><div data-tab-name="search" style="min-height: 500px;"> <input placeholder="Loading..." disabled/> <div></div></div></div>';
 
     ex.tab.querySelector('nav').addEventListener('click', function(event) {
         var tabName = event.target.dataset.tabName;
@@ -297,18 +297,18 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
 
         //Server tab html
         var h = '<p>Note: These statistics will only be accurate since ' + logData.startTime.toLocaleDateString() + ' ' + logData.startTime.toLocaleTimeString() + '<p>';
-        h += '<h3>Miscellaneous Stats:</h3>';
+        h += '<h3 class="title">Miscellaneous Stats:</h3>';
         h += '<ul><li>This server has been joined ' + logData.joinsTotal + ' times.';
         h += '<li>' + playersTotal + ' accounts have joined this server.';
         h += '<li>' + duplicateAccounts + ' (' + (duplicateAccounts / Object.keys(logData.players).length * 100).toFixed(2) + '%) of players have more than one account.';
         h += '<li>Bounce rate (lower is better): ' + calcBounceRate();
         h += '<li>The server last had 16 players at: ' + logData.last16Time;
         h += '</ul>';
-        h += '<h3>Total number of joins per hour (All time)</h3>';
+        h += '<h3 class="title">Total number of joins per hour (All time)</h3>';
         h += '<div id="biblio_analytics_graph_all" class="ct-chart"></div>';
-        h += '<h3>Total number of joins per hour (Past week)</h3>';
+        h += '<h3 class="title">Total number of joins per hour (Past week)</h3>';
         h += '<div id="biblio_analytics_graph_week" class="ct-chart"></div>';
-        h += '<h3>Total number of joins per hour (Past day)</h3>';
+        h += '<h3 class="title">Total number of joins per hour (Past day)</h3>';
         h += '<div id="biblio_analytics_graph_day" class="ct-chart"></div>';
 
         ex.tab.querySelector('#biblio_analytics_tc [data-tab-name=server]').innerHTML = h;
@@ -325,7 +325,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
         try {
             if (ex.bot.world.players[name]) {
                 //Name found!
-                h = '<h4>' + safeName + ' Info</h4>';
+                h = '<h4 class="subtitle">' + safeName + ' Info</h4>';
                 h += '<span>' + safeName + ' has joined the server ' + logData.players[name].joins + ' time(s)</span><br>';
                 h += '<span>' + safeName + ' has spent ' + (logData.onlineTime[name] / 1000 / 60 < 60 ? (logData.onlineTime[name] / 1000 / 60).toFixed(0) + ' minutes' : (logData.onlineTime[name] / 1000 / 60 / 60).toFixed(2) + ' hours') + ' online</span><br>';
                 h += '<span>' + safeName + ' last joined the server at ' + (new Date(logData.players[name].lastJoin)).toLocaleDateString() + ' ' + (new Date(logData.players[name].lastJoin)).toLocaleTimeString() + '</span><br>';
@@ -343,7 +343,7 @@ var biblio_analytics = MessageBotExtension('biblio_analytics');
                 info.innerHTML = h;
             } else if (logData.ips[name]) {
                 //IP found!
-                h = '<h4>' + name + ' Info</h4>';
+                h = '<h4 class="subtitle">' + name + ' Info</h4>';
                 h += '<span>The names associated with this IP are:</span><ul style="padding-left:1.5em">';
                 this.ips[name].forEach(function(name) {
                     h += '<li>' + name + '</li>';
