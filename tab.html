@@ -5,69 +5,15 @@
     .ct-area {
         fill: rgb(24, 43, 115) !important;
     }
-    #biblio_analytics_tn {
-        width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    }
-    #biblio_analytics_tn > span {
-        background: #182B73;
-        color: #fff;
-        height: 40px;
-
-        display: -webkit-box;
-
-        display: -ms-flexbox;
-
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
-        margin-top: 5px;
-        margin-right: 5px;
-        min-width: 120px;
-    }
-    #biblio_analytics_tn > span.selected {
-        background: #E7E7E7;
-        color: #000;
-    }
-
-    #biblio_analytics_tc > div {
-        display: none;
-        overflow-y: auto;
-        background: #E7E7E7;
-        padding: 5px;
-    }
-    #biblio_analytics_tc > div.visible {
-        display: block;
-    }
-    #biblio_analytics_tc [data-tab-name="history"] > ul > li > span {
-        width: 15em;
-        display: inline-block;
-    }
-    #biblio_analytics_tc [data-tab-name="history"] > ul > li {
-        font-size: 1em;
-    }
 </style>
-<nav id="biblio_analytics_tn">
-    <span data-tab-name="server" class="selected">Server Stats</span>
-    <span data-tab-name="history">Player History</span>
-    <span data-tab-name="search">Player Search</span>
-</nav>
-<div id="biblio_analytics_tc">
-    <div data-tab-name="server" class="visible">Loading...</div>
-    <div data-tab-name="history">Loading...</div>
-    <div data-tab-name="search" style="min-height: 500px;">
-        <input placeholder="Loading..." disabled/>
-        <div></div>
-    </div>
+<div class="container is-fluid">
+    Loading...
+</div>
+
+<div class="container is-fluid">
+    Loading...
+</div>
+
+<div class="container is-fluid">
+    <input class="input" placeholder="Loading..." disabled/>
 </div>
