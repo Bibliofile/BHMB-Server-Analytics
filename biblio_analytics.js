@@ -71,6 +71,9 @@ MessageBot.registerExtension('bibliofile/analytics', function(ex, world) {
     var serverTab = ui.addTab('Statistics', 'analytics');
     var historyTab = ui.addTab('Player History', 'analytics');
     var searchTab = ui.addTab('Player Search', 'analytics');
+    ex.uninstall = function() {
+        ui.removeTabGroup('analytics');
+    };
 
     insertCSS('//cdnjs.cloudflare.com/ajax/libs/awesomplete/1.0.0/awesomplete.min.css');
     insertCSS('//cdnjs.cloudflare.com/ajax/libs/chartist/0.9.5/chartist.min.css');
