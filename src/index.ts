@@ -88,7 +88,7 @@ MessageBot.registerExtension('bibliofile/analytics', async (ex, world) => {
   // Players tab
   const playerList: Array<PlayerInfo & { name: string }> = Object.keys(results.players)
     .map(name => ({...results.players[name], name}))
-    .sort((a, b) => a.lastJoin.getTime() - b.lastJoin.getTime())
+    .sort((a, b) => b.lastJoin.getTime() - a.lastJoin.getTime())
 
   playerTab.innerHTML = searchHtml
   const tbody = playerTab.querySelector('tbody')!
