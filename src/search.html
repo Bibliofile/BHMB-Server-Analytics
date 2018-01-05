@@ -1,0 +1,29 @@
+<template>
+  <tr>
+    <td data-for="name">Name</td>
+    <td data-for="last-ip">Last IP</td>
+    <td data-for="last-join">Last Join</td>
+    <td><button class="button is-small" data-do="name">More info</button></td>
+  </tr>
+</template>
+
+
+<div class="container is-widescreen">
+  <br>
+  <h3 class="subtitle">Search</h3>
+  <input class="input" placeholder="Name or IP">
+  <br>
+  <hr>
+
+  <table class="table is-fullwidth is-striped is-narrow">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last IP</th>
+        <th>Last join</th>
+        <th>Extra</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
