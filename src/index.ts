@@ -137,7 +137,7 @@ MessageBot.registerExtension('bibliofile/analytics', async (ex, world) => {
   input.addEventListener('input', () => {
     // Search by name or by IP?
     const search = input.value.toLocaleUpperCase()
-    const searchByName = !/^\d{2,3}\.\d?/.test(search)
+    const searchByName = !/^\d{1,3}\.\d/.test(search)
 
     while (tbody.lastChild) tbody.removeChild(tbody.lastChild)
     if (searchByName) {
