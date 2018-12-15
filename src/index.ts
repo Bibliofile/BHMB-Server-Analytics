@@ -176,7 +176,7 @@ function analyzeLogs(logs: LogEntry[]): LogResults {
     players: {},
     last16Time: new Date(0)
   }
-  const { ips, players} = results
+  const { ips, players } = results
 
   let online = 0
 
@@ -231,7 +231,7 @@ function getPlayerInfoFromJoin(entry: LogEntry): {name: string, ip: string} | nu
 
 function getPlayerInfoFromLeave({ message }: LogEntry): string | null {
   if (!message.includes(' - Player Disconnected ')) return null
-  return message.substr(message.indexOf(' - Player Disconnected ' + 23))
+  return message.substr(message.indexOf(' - Player Disconnected ') + 23);
 }
 
 function calcBounceRate(playerData: PlayerData): string {
