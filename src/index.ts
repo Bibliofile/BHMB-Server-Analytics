@@ -22,7 +22,6 @@ function stripHTML(html: string): string {
 }
 
 MessageBot.registerExtension('bibliofile/analytics', async (ex, world) => {
-  console.log('Register')
   const ui = ex.bot.getExports('ui') as UIExtensionExports | undefined
   if (!ui) return // Not useful in node bots
 
