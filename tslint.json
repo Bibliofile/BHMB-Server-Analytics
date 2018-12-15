@@ -17,6 +17,7 @@
         "no-invalid-this": [
             true,
             "check-function-in-method"
-        ]
+        ],
+        "restrict-plus-operands": true
     }
 }

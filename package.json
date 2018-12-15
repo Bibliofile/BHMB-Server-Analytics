@@ -5,6 +5,7 @@
   "description": "Provides analytics on your server logs.",
   "main": "./build/bundle.js",
   "scripts": {
+    "lint": "tslint --project .",
     "build": "rollup --config",
     "build:watch": "rollup --config --watch"
   },

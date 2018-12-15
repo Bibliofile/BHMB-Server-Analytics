@@ -231,7 +231,7 @@ function getPlayerInfoFromJoin(entry: LogEntry): {name: string, ip: string} | nu
 
 function getPlayerInfoFromLeave({ message }: LogEntry): string | null {
   if (!message.includes(' - Player Disconnected ')) return null
-  return message.substr(message.indexOf(' - Player Disconnected ') + 23);
+  return message.substr(message.indexOf(' - Player Disconnected ') + 23)
 }
 
 function calcBounceRate(playerData: PlayerData): string {
