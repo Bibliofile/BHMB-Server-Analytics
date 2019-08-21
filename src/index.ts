@@ -246,7 +246,7 @@ function calcNumberDuplicateAccounts(results: LogResults): number {
   const names = Object.keys(results.ips)
     .map(ip => results.ips[ip])
     .filter(names => names.length > 1)
-    .reduce((all, names) => all.concat(names))
+    .reduce((all, names) => all.concat(names), [])
 
   return [...new Set(names)].length
 }
